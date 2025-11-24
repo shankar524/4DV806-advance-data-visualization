@@ -1,0 +1,1793 @@
+[
+  {
+    "id": "jocfit",
+    "name": "Jocelyn Fitzpatrick",
+    "year": 2019,
+    "pubs": 2,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "gilweb",
+    "name": "Gil Webster",
+    "year": 2019,
+    "pubs": 3,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "ellbry",
+    "name": "Ellen Bryan",
+    "year": 2019,
+    "pubs": 9,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "kenhod",
+    "name": "Kendra Hodges",
+    "year": 2019,
+    "pubs": 12,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "carnun",
+    "name": "Carol Nunez",
+    "year": 2019,
+    "pubs": 3,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "linhug",
+    "name": "Linda Hughes",
+    "year": 2019,
+    "pubs": 3,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "sybvel",
+    "name": "Sybil Velasquez",
+    "year": 2019,
+    "pubs": 1,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "estben",
+    "name": "Esther Benson",
+    "year": 2019,
+    "pubs": 3,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "jerwil",
+    "name": "Jeromy Williamson",
+    "year": 2019,
+    "pubs": 8,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "marros",
+    "name": "Marlin Rose",
+    "year": 2019,
+    "pubs": 1,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "prislo",
+    "name": "Prince Sloan",
+    "year": 2019,
+    "pubs": 2,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "margil",
+    "name": "Maribel Gillespie",
+    "year": 2019,
+    "pubs": 1,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "robfar",
+    "name": "Roberto Farrell",
+    "year": 2019,
+    "pubs": 1,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "werhoo",
+    "name": "Werner Hoover",
+    "year": 2019,
+    "pubs": 3,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "krimos",
+    "name": "Kris Mosley",
+    "year": 2019,
+    "pubs": 3,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "sofmas",
+    "name": "Sofia Massey",
+    "year": 2019,
+    "pubs": 7,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "sylham",
+    "name": "Sylvia Hamilton",
+    "year": 2019,
+    "pubs": 1,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "edwwhi",
+    "name": "Edwin Whitney",
+    "year": 2019,
+    "pubs": 8,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "rossua",
+    "name": "Rosalie Suarez",
+    "year": 2019,
+    "pubs": 4,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "rolall",
+    "name": "Rolf Allen",
+    "year": 2019,
+    "pubs": 2,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "paubal",
+    "name": "Pauline Ball",
+    "year": 2019,
+    "pubs": 1,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "clibry",
+    "name": "Clifford Bryant",
+    "year": 2019,
+    "pubs": 10,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "rosbra",
+    "name": "Rosalinda Bradshaw",
+    "year": 2019,
+    "pubs": 3,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "tonpen",
+    "name": "Tonia Pennington",
+    "year": 2019,
+    "pubs": 1,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "sauros",
+    "name": "Saul Rosales",
+    "year": 2019,
+    "pubs": 2,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "leofre",
+    "name": "Leonard Freeman",
+    "year": 2019,
+    "pubs": 7,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "darkra",
+    "name": "Darell Kramer",
+    "year": 2019,
+    "pubs": 2,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "lewbre",
+    "name": "Lewis Brennan",
+    "year": 2019,
+    "pubs": 3,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "phible",
+    "name": "Philip Blevins",
+    "year": 2019,
+    "pubs": 1,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "louhig",
+    "name": "Louie Higgins",
+    "year": 2019,
+    "pubs": 6,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "eduare",
+    "name": "Eduardo Arellano",
+    "year": 2019,
+    "pubs": 6,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "monmon",
+    "name": "Mona Montes",
+    "year": 2019,
+    "pubs": 12,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "jangat",
+    "name": "Janelle Gates",
+    "year": 2019,
+    "pubs": 8,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "stahol",
+    "name": "Stanley Holder",
+    "year": 2019,
+    "pubs": 1,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "kimvil",
+    "name": "Kim Villegas",
+    "year": 2019,
+    "pubs": 1,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "herrol",
+    "name": "Herman Rollins",
+    "year": 2019,
+    "pubs": 6,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "odedav",
+    "name": "Odell David",
+    "year": 2019,
+    "pubs": 6,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "deeell",
+    "name": "Dee Ellison",
+    "year": 2019,
+    "pubs": 2,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "sherus",
+    "name": "Sheryl Rush",
+    "year": 2019,
+    "pubs": 1,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "tesmcd",
+    "name": "Tessa Mcdowell",
+    "year": 2019,
+    "pubs": 1,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "cargro",
+    "name": "Carroll Gross",
+    "year": 2019,
+    "pubs": 2,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "anggra",
+    "name": "Angelique Graham",
+    "year": 2019,
+    "pubs": 1,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "confis",
+    "name": "Conrad Fisher",
+    "year": 2019,
+    "pubs": 1,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "wendav",
+    "name": "Wendell Davis",
+    "year": 2019,
+    "pubs": 1,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "jenhar",
+    "name": "Jennie Harvey",
+    "year": 2019,
+    "pubs": 1,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "wilcab",
+    "name": "William Cabrera",
+    "year": 2019,
+    "pubs": 1,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "erndec",
+    "name": "Ernest Decker",
+    "year": 2019,
+    "pubs": 2,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "emmpra",
+    "name": "Emmitt Pratt",
+    "year": 2019,
+    "pubs": 2,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "jewgal",
+    "name": "Jewel Gallagher",
+    "year": 2019,
+    "pubs": 1,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "jarmar",
+    "name": "Jarrod Marquez",
+    "year": 2019,
+    "pubs": 2,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "grebry",
+    "name": "Gregorio Bryan",
+    "year": 2019,
+    "pubs": 2,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "chrrho",
+    "name": "Christina Rhodes",
+    "year": 2019,
+    "pubs": 1,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "frirui",
+    "name": "Fritz Ruiz",
+    "year": 2019,
+    "pubs": 1,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "orvodo",
+    "name": "Orval Odom",
+    "year": 2019,
+    "pubs": 1,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "debsim",
+    "name": "Debbie Simmons",
+    "year": 2019,
+    "pubs": 8,
+    "department": "Dept. of Mathematics (MA)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "ofelyo",
+    "name": "Ofelia Lyons",
+    "year": 2019,
+    "pubs": 1,
+    "department": "Dept. of Mathematics (MA)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "marvel",
+    "name": "Maria Velez",
+    "year": 2019,
+    "pubs": 1,
+    "department": "Dept. of Mathematics (MA)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "stesto",
+    "name": "Stephanie Stokes",
+    "year": 2019,
+    "pubs": 3,
+    "department": "Dept. of Mathematics (MA)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "rocsim",
+    "name": "Rochelle Simpson",
+    "year": 2019,
+    "pubs": 4,
+    "department": "Dept. of Mathematics (MA)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "melcan",
+    "name": "Mel Cantrell",
+    "year": 2019,
+    "pubs": 17,
+    "department": "Dept. of Mathematics (MA)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "kelewi",
+    "name": "Kelvin Ewing",
+    "year": 2019,
+    "pubs": 2,
+    "department": "Dept. of Mathematics (MA)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "valspe",
+    "name": "Val Spence",
+    "year": 2019,
+    "pubs": 1,
+    "department": "Dept. of Mathematics (MA)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "shalea",
+    "name": "Shana Leach",
+    "year": 2019,
+    "pubs": 2,
+    "department": "Dept. of Mathematics (MA)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "morpie",
+    "name": "Morris Pierce",
+    "year": 2019,
+    "pubs": 4,
+    "department": "Dept. of Mathematics (MA)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "petgro",
+    "name": "Pete Gross",
+    "year": 2019,
+    "pubs": 1,
+    "department": "Dept. of Mathematics (MA)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "lauric",
+    "name": "Laurie Rich",
+    "year": 2019,
+    "pubs": 1,
+    "department": "Dept. of Mathematics (MA)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "romcam",
+    "name": "Romeo Cameron",
+    "year": 2019,
+    "pubs": 2,
+    "department": "Dept. of Mathematics (MA)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "maysch",
+    "name": "Maynard Schaefer",
+    "year": 2019,
+    "pubs": 7,
+    "department": "Dept. of Mathematics (MA)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "elbjua",
+    "name": "Elbert Juarez",
+    "year": 2019,
+    "pubs": 2,
+    "department": "Dept. of Mathematics (MA)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "lylste",
+    "name": "Lyle Stephenson",
+    "year": 2019,
+    "pubs": 2,
+    "department": "Dept. of Mathematics (MA)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "rebnov",
+    "name": "Rebecca Novak",
+    "year": 2019,
+    "pubs": 3,
+    "department": "Dept. of Mathematics (MA)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "terbra",
+    "name": "Terence Braun",
+    "year": 2019,
+    "pubs": 2,
+    "department": "Dept. of Mathematics (MA)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "danowe",
+    "name": "Dan Owens",
+    "year": 2019,
+    "pubs": 1,
+    "department": "Dept. of Mathematics (MA)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "allkno",
+    "name": "Allie Knox",
+    "year": 2019,
+    "pubs": 1,
+    "department": "Dept. of Mathematics (MA)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "steoco",
+    "name": "Stephan Oconnor",
+    "year": 2019,
+    "pubs": 1,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "liobea",
+    "name": "Lionel Bean",
+    "year": 2019,
+    "pubs": 1,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "natdra",
+    "name": "Nathaniel Drake",
+    "year": 2019,
+    "pubs": 8,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "jesdun",
+    "name": "Jesse Dunn",
+    "year": 2019,
+    "pubs": 1,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "hormar",
+    "name": "Horacio Martin",
+    "year": 2019,
+    "pubs": 6,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "marmos",
+    "name": "Maryanne Moses",
+    "year": 2019,
+    "pubs": 3,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "ernhof",
+    "name": "Ernie Hoffman",
+    "year": 2019,
+    "pubs": 7,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "kurlan",
+    "name": "Kurtis Landry",
+    "year": 2019,
+    "pubs": 1,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "leohun",
+    "name": "Leonel Hunter",
+    "year": 2019,
+    "pubs": 7,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "milcru",
+    "name": "Millie Cruz",
+    "year": 2019,
+    "pubs": 3,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "kenhud",
+    "name": "Kent Hudson",
+    "year": 2019,
+    "pubs": 5,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "bobra",
+    "name": "Bo Bray",
+    "year": 2019,
+    "pubs": 1,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "eveden",
+    "name": "Eve Dennis",
+    "year": 2019,
+    "pubs": 4,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "bergre",
+    "name": "Bernadette Greer",
+    "year": 2019,
+    "pubs": 1,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "letche",
+    "name": "Letha Cherry",
+    "year": 2019,
+    "pubs": 2,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "roycos",
+    "name": "Roy Costa",
+    "year": 2019,
+    "pubs": 1,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "salrob",
+    "name": "Sallie Robinson",
+    "year": 2019,
+    "pubs": 1,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "lymwal",
+    "name": "Lyman Walker",
+    "year": 2019,
+    "pubs": 2,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "edgmor",
+    "name": "Edgar Morrison",
+    "year": 2019,
+    "pubs": 3,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "enrwee",
+    "name": "Enrique Weeks",
+    "year": 2019,
+    "pubs": 1,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "gilcra",
+    "name": "Gilda Craig",
+    "year": 2019,
+    "pubs": 1,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "ulydav",
+    "name": "Ulysses Davenport",
+    "year": 2019,
+    "pubs": 1,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "lowros",
+    "name": "Lowell Rosario",
+    "year": 2019,
+    "pubs": 3,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "annrey",
+    "name": "Anne Reyes",
+    "year": 2019,
+    "pubs": 1,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "kevtra",
+    "name": "Keven Travis",
+    "year": 2019,
+    "pubs": 1,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "jarher",
+    "name": "Jared Herman",
+    "year": 2019,
+    "pubs": 1,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "ismpug",
+    "name": "Ismael Pugh",
+    "year": 2019,
+    "pubs": 1,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "ginran",
+    "name": "Ginger Randolph",
+    "year": 2019,
+    "pubs": 1,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "quijim",
+    "name": "Quincy Jimenez",
+    "year": 2019,
+    "pubs": 1,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "evarod",
+    "name": "Evangelina Rodriguez",
+    "year": 2019,
+    "pubs": 1,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "scoarm",
+    "name": "Scotty Armstrong",
+    "year": 2020,
+    "pubs": 1,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "kelglo",
+    "name": "Kelsey Glover",
+    "year": 2020,
+    "pubs": 2,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "canrob",
+    "name": "Candice Robinson",
+    "year": 2020,
+    "pubs": 4,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "bresan",
+    "name": "Brett Santana",
+    "year": 2020,
+    "pubs": 9,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "bracue",
+    "name": "Bradley Cuevas",
+    "year": 2020,
+    "pubs": 1,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "wilbow",
+    "name": "Willard Bowman",
+    "year": 2020,
+    "pubs": 2,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "ferbax",
+    "name": "Ferdinand Baxter",
+    "year": 2020,
+    "pubs": 5,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "avifer",
+    "name": "Avis Fernandez",
+    "year": 2020,
+    "pubs": 7,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "mckbel",
+    "name": "Mckinley Beltran",
+    "year": 2020,
+    "pubs": 3,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "jaymea",
+    "name": "Jayne Meadows",
+    "year": 2020,
+    "pubs": 3,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "ellhun",
+    "name": "Elliot Hunter",
+    "year": 2020,
+    "pubs": 5,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "bilho",
+    "name": "Bill Ho",
+    "year": 2020,
+    "pubs": 6,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "conkra",
+    "name": "Concetta Kramer",
+    "year": 2020,
+    "pubs": 3,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "nanalv",
+    "name": "Nanette Alvarado",
+    "year": 2020,
+    "pubs": 1,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "priric",
+    "name": "Prince Richards",
+    "year": 2020,
+    "pubs": 1,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "gengro",
+    "name": "Gena Gross",
+    "year": 2020,
+    "pubs": 1,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "stehen",
+    "name": "Stefan Hendrix",
+    "year": 2020,
+    "pubs": 3,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "lilvil",
+    "name": "Lilian Villanueva",
+    "year": 2020,
+    "pubs": 7,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "frawat",
+    "name": "Francesco Watkins",
+    "year": 2020,
+    "pubs": 2,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "frarus",
+    "name": "Francesca Russo",
+    "year": 2020,
+    "pubs": 5,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "emigri",
+    "name": "Emil Grimes",
+    "year": 2020,
+    "pubs": 2,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "dioriv",
+    "name": "Dionne Rivers",
+    "year": 2020,
+    "pubs": 3,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "holgen",
+    "name": "Hollis Gentry",
+    "year": 2020,
+    "pubs": 6,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "genmad",
+    "name": "Gene Maddox",
+    "year": 2020,
+    "pubs": 3,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "josdav",
+    "name": "Jospeh Davila",
+    "year": 2020,
+    "pubs": 1,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "erirob",
+    "name": "Erin Robles",
+    "year": 2020,
+    "pubs": 3,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "eltpad",
+    "name": "Elton Padilla",
+    "year": 2020,
+    "pubs": 1,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "aubmoo",
+    "name": "Aubrey Moody",
+    "year": 2020,
+    "pubs": 3,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "reyrei",
+    "name": "Reyes Reid",
+    "year": 2020,
+    "pubs": 3,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "jamrow",
+    "name": "Jamey Rowe",
+    "year": 2020,
+    "pubs": 3,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "nelwig",
+    "name": "Nelda Wiggins",
+    "year": 2020,
+    "pubs": 1,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "madgoo",
+    "name": "Madge Good",
+    "year": 2020,
+    "pubs": 2,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "clacor",
+    "name": "Clare Cordova",
+    "year": 2020,
+    "pubs": 1,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "antari",
+    "name": "Anthony Arias",
+    "year": 2020,
+    "pubs": 1,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "lydbri",
+    "name": "Lydia Briggs",
+    "year": 2020,
+    "pubs": 1,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "janhub",
+    "name": "Janine Huber",
+    "year": 2020,
+    "pubs": 1,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "colsos",
+    "name": "Collin Sosa",
+    "year": 2020,
+    "pubs": 5,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "lancas",
+    "name": "Lanny Case",
+    "year": 2020,
+    "pubs": 1,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "joeboo",
+    "name": "Joesph Booker",
+    "year": 2020,
+    "pubs": 2,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "loncon",
+    "name": "Lonny Conley",
+    "year": 2020,
+    "pubs": 1,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "maybar",
+    "name": "Maynard Barron",
+    "year": 2020,
+    "pubs": 1,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "jermye",
+    "name": "Jeri Myers",
+    "year": 2020,
+    "pubs": 1,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "kyllut",
+    "name": "Kyle Lutz",
+    "year": 2020,
+    "pubs": 1,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "nesflo",
+    "name": "Nestor Flores",
+    "year": 2020,
+    "pubs": 1,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "kelyod",
+    "name": "Kelly Yoder",
+    "year": 2020,
+    "pubs": 1,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "katell",
+    "name": "Katrina Ellison",
+    "year": 2020,
+    "pubs": 1,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "lucbuc",
+    "name": "Lucia Buckley",
+    "year": 2020,
+    "pubs": 1,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "lizper",
+    "name": "Liz Perry",
+    "year": 2020,
+    "pubs": 1,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "rhemez",
+    "name": "Rhea Meza",
+    "year": 2020,
+    "pubs": 1,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "kenmac",
+    "name": "Kent Mack",
+    "year": 2020,
+    "pubs": 2,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "taymon",
+    "name": "Taylor Montoya",
+    "year": 2020,
+    "pubs": 1,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "deohan",
+    "name": "Deon Hanna",
+    "year": 2020,
+    "pubs": 1,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "donwan",
+    "name": "Donte Wang",
+    "year": 2020,
+    "pubs": 2,
+    "department": "Dept. of Computer Science and Media Technology (DM)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "racpre",
+    "name": "Rachel Preston",
+    "year": 2020,
+    "pubs": 19,
+    "department": "Dept. of Mathematics (MA)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "genkid",
+    "name": "Geneva Kidd",
+    "year": 2020,
+    "pubs": 3,
+    "department": "Dept. of Mathematics (MA)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "arlrho",
+    "name": "Arlen Rhodes",
+    "year": 2020,
+    "pubs": 2,
+    "department": "Dept. of Mathematics (MA)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "loucha",
+    "name": "Louella Chavez",
+    "year": 2020,
+    "pubs": 6,
+    "department": "Dept. of Mathematics (MA)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "lotday",
+    "name": "Lottie Day",
+    "year": 2020,
+    "pubs": 4,
+    "department": "Dept. of Mathematics (MA)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "donpoo",
+    "name": "Donnie Poole",
+    "year": 2020,
+    "pubs": 9,
+    "department": "Dept. of Mathematics (MA)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "benfle",
+    "name": "Benedict Fletcher",
+    "year": 2020,
+    "pubs": 7,
+    "department": "Dept. of Mathematics (MA)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "autcha",
+    "name": "Autumn Chase",
+    "year": 2020,
+    "pubs": 1,
+    "department": "Dept. of Mathematics (MA)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "rupcai",
+    "name": "Rupert Cain",
+    "year": 2020,
+    "pubs": 5,
+    "department": "Dept. of Mathematics (MA)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "asamil",
+    "name": "Asa Miles",
+    "year": 2020,
+    "pubs": 2,
+    "department": "Dept. of Mathematics (MA)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "forgil",
+    "name": "Forest Gilmore",
+    "year": 2020,
+    "pubs": 3,
+    "department": "Dept. of Mathematics (MA)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "marlyn",
+    "name": "Marjorie Lynch",
+    "year": 2020,
+    "pubs": 2,
+    "department": "Dept. of Mathematics (MA)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "malmen",
+    "name": "Malcolm Mendez",
+    "year": 2020,
+    "pubs": 1,
+    "department": "Dept. of Mathematics (MA)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "rosdic",
+    "name": "Roscoe Dickerson",
+    "year": 2020,
+    "pubs": 1,
+    "department": "Dept. of Mathematics (MA)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "tammal",
+    "name": "Tamera Maldonado",
+    "year": 2020,
+    "pubs": 1,
+    "department": "Dept. of Mathematics (MA)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "ambbel",
+    "name": "Amber Bell",
+    "year": 2020,
+    "pubs": 1,
+    "department": "Dept. of Mathematics (MA)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "trasmi",
+    "name": "Traci Smith",
+    "year": 2020,
+    "pubs": 2,
+    "department": "Dept. of Mathematics (MA)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "rodbal",
+    "name": "Rod Baldwin",
+    "year": 2020,
+    "pubs": 4,
+    "department": "Dept. of Mathematics (MA)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "catgil",
+    "name": "Catalina Gilbert",
+    "year": 2020,
+    "pubs": 1,
+    "department": "Dept. of Mathematics (MA)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "thesua",
+    "name": "Thelma Suarez",
+    "year": 2020,
+    "pubs": 1,
+    "department": "Dept. of Mathematics (MA)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "judshi",
+    "name": "Jude Shields",
+    "year": 2020,
+    "pubs": 1,
+    "department": "Dept. of Mathematics (MA)",
+    "faculty": "Faculty of Technology (FTK)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "chafie",
+    "name": "Chas Fields",
+    "year": 2020,
+    "pubs": 5,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "sonche",
+    "name": "Sonja Cherry",
+    "year": 2020,
+    "pubs": 3,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "loiwar",
+    "name": "Lois Warner",
+    "year": 2020,
+    "pubs": 2,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "nitmcp",
+    "name": "Nita Mcpherson",
+    "year": 2020,
+    "pubs": 3,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "laudur",
+    "name": "Laurie Durham",
+    "year": 2020,
+    "pubs": 2,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "joahou",
+    "name": "Joan Houston",
+    "year": 2020,
+    "pubs": 4,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "norgal",
+    "name": "Norris Galvan",
+    "year": 2020,
+    "pubs": 5,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "jolcoo",
+    "name": "Jolene Cooper",
+    "year": 2020,
+    "pubs": 1,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "terbla",
+    "name": "Terrie Blake",
+    "year": 2020,
+    "pubs": 3,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "gaywer",
+    "name": "Gayle Werner",
+    "year": 2020,
+    "pubs": 6,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "noncab",
+    "name": "Nona Cabrera",
+    "year": 2020,
+    "pubs": 4,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "reyhod",
+    "name": "Reynaldo Hodges",
+    "year": 2020,
+    "pubs": 3,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "jimdav",
+    "name": "Jim Davies",
+    "year": 2020,
+    "pubs": 1,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "crigar",
+    "name": "Cristobal Garza",
+    "year": 2020,
+    "pubs": 1,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "kriluc",
+    "name": "Kris Lucas",
+    "year": 2020,
+    "pubs": 2,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "refvil",
+    "name": "Refugio Villegas",
+    "year": 2020,
+    "pubs": 1,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "maryou",
+    "name": "Marci Young",
+    "year": 2020,
+    "pubs": 1,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "thasot",
+    "name": "Thaddeus Soto",
+    "year": 2020,
+    "pubs": 2,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "freric",
+    "name": "Fredrick Rich",
+    "year": 2020,
+    "pubs": 1,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "kerpol",
+    "name": "Kerri Pollard",
+    "year": 2020,
+    "pubs": 1,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  },
+  {
+    "id": "edmloz",
+    "name": "Edmond Lozano",
+    "year": 2020,
+    "pubs": 1,
+    "department": "Dept. of Languages (SPR)",
+    "faculty": "Faculty of Arts and Humanities (FKH)",
+    "university": "Pendelton State University (PSU)"
+  }
+]
