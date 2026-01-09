@@ -19,7 +19,7 @@ const milestones = [
   { date: new Date(2022, 4, 20), label: 'Mariupol Falls', shortLabel: 'Mariupol' },
   { date: new Date(2022, 8, 21), label: 'Mobilization', shortLabel: 'Mobiliz.' },
   { date: new Date(2022, 10, 11), label: 'Kherson Liberation', shortLabel: 'Kherson' },
-  { date: new Date(2023, 1, 24), label: '1 Year Anniversary', shortLabel: '1 Year' },
+  { date: new Date(2023, 1, 24), label: '1 Year of War', shortLabel: '1 Year' },
 ];
 
 function FilterPanel({ 
