@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import FilterPanel from './components/FilterPanel';
+import React, { useState, useMemo } from 'react';
 import WorldMap from './components/WorldMap';
-import SummaryPanel from './components/SummaryPanel';
+import ControlPanel from './components/ControlPanel';
+import MapLegend from './components/MapLegend';
 import { countryStanceSummary, temporalStanceSummary, countryStanceTemporal, countryNames } from './data';
 
 // Date range constants
@@ -12,6 +12,7 @@ function App() {
   // Filter state
   const [dateRange, setDateRange] = useState([MIN_DATE, MAX_DATE]);
   const [selectedStances, setSelectedStances] = useState(['pro_nato', 'pro_russia', 'neutral']);
+  const [searchQuery, setSearchQuery] = useState('');
   
   // Selected country for detail panel
   const [selectedCountry, setSelectedCountry] = useState(null);
@@ -81,22 +82,9 @@ function App() {
     
     const temporalChartData = Object.values(temporalByMonth).sort((a, b) => a.date.localeCompare(b.date));
     
-    // Aggregate temporal data by day for daily chart
-    const temporalByDay = {};
-    filteredTemporal.forEach(d => {
-      const key = `${d.year}-${String(d.month).padStart(2, '0')}-${String(d.day).padStart(2, '0')}`;
-      if (!temporalByDay[key]) {
-        temporalByDay[key] = { date: key, pro_nato: 0, pro_russia: 0, neutral: 0 };
-      }
-      temporalByDay[key][d.stance] += d.tweet_count;
-    });
-    
-    const dailyChartData = Object.values(temporalByDay).sort((a, b) => a.date.localeCompare(b.date));
-    
     return {
       countryData: Object.values(countryData),
       temporalChartData,
-      dailyChartData,
       totals
     };
   }, [dateRange, selectedStances]);
@@ -117,11 +105,6 @@ function App() {
              selectedStances.includes(d.stance);
     });
     
-    // Get summary data for engagement metrics (not filtered by date for now)
-    const summaryData = countryStanceSummary.filter(d => 
-      d.country_code === selectedCountry && selectedStances.includes(d.stance)
-    );
-    
     // Aggregate by month for timeline
     const timeline = {};
     temporalData.forEach(d => {
@@ -132,17 +115,12 @@ function App() {
       timeline[key][d.stance] += d.tweet_count;
     });
     
-    // Calculate totals from temporal data (filtered by date range)
+    // Calculate totals from temporal data
     const totals = {
       pro_nato: temporalData.filter(d => d.stance === 'pro_nato').reduce((sum, d) => sum + d.tweet_count, 0),
       pro_russia: temporalData.filter(d => d.stance === 'pro_russia').reduce((sum, d) => sum + d.tweet_count, 0),
       neutral: temporalData.filter(d => d.stance === 'neutral').reduce((sum, d) => sum + d.tweet_count, 0),
-      avg_retweets: summaryData.length > 0 ? 
-        summaryData.reduce((sum, d) => sum + d.avg_retweets * d.tweet_count, 0) / 
-        summaryData.reduce((sum, d) => sum + d.tweet_count, 0) : 0,
-      avg_favorites: summaryData.length > 0 ?
-        summaryData.reduce((sum, d) => sum + d.avg_favorites * d.tweet_count, 0) /
-        summaryData.reduce((sum, d) => sum + d.tweet_count, 0) : 0
+      unique_users: temporalData.reduce((sum, d) => sum + (d.unique_users || 0), 0),
     };
     totals.total = totals.pro_nato + totals.pro_russia + totals.neutral;
     
@@ -154,73 +132,63 @@ function App() {
     };
   }, [selectedCountry, dateRange, selectedStances]);
   
+  // Filter countries by search
+  const searchResults = useMemo(() => {
+    if (!searchQuery.trim()) return [];
+    const query = searchQuery.toLowerCase();
+    return filteredData.countryData
+      .filter(c => c.country_name.toLowerCase().includes(query))
+      .slice(0, 5);
+  }, [searchQuery, filteredData.countryData]);
+  
   // Reset all filters
   const handleReset = () => {
     setDateRange([MIN_DATE, MAX_DATE]);
     setSelectedStances(['pro_nato', 'pro_russia', 'neutral']);
     setSelectedCountry(null);
+    setSearchQuery('');
   };
   
   return (
-    <div className="min-h-screen bg-slate-50">
-      {/* Header */}
-      <header className="bg-gradient-to-r from-blue-700 to-blue-900 text-white py-4 px-6 shadow-lg">
-        <div className="max-w-7xl mx-auto">
-          <h1 className="text-2xl font-bold">Twitter Stance Analysis</h1>
-          <p className="text-blue-200 text-sm mt-1">Russia-Ukraine Conflict • Feb 2022 - May 2023</p>
-        </div>
-      </header>
+    <div className="h-screen w-screen overflow-hidden relative bg-slate-200">
+      {/* Full-screen Map Background */}
+      <div className="absolute inset-0">
+        <WorldMap
+          data={filteredData.countryData}
+          selectedCountry={selectedCountry}
+          onCountrySelect={setSelectedCountry}
+          selectedStances={selectedStances}
+          fullscreen={true}
+        />
+      </div>
       
-      <main className="max-w-[1600px] mx-auto px-6 py-6">
-        {/* Filter Panel */}
-        <FilterPanel
+      {/* Floating Control Panel - Left Side */}
+      <div className="absolute top-4 left-4 z-10">
+        <ControlPanel
           dateRange={dateRange}
           setDateRange={setDateRange}
           selectedStances={selectedStances}
           setSelectedStances={setSelectedStances}
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+          searchResults={searchResults}
+          onCountrySelect={setSelectedCountry}
+          selectedCountry={selectedCountry}
+          selectedCountryData={selectedCountryData}
+          onCloseCountry={() => setSelectedCountry(null)}
+          countryData={filteredData.countryData}
+          totals={filteredData.totals}
           onReset={handleReset}
           minDate={MIN_DATE}
           maxDate={MAX_DATE}
+          temporalChartData={filteredData.temporalChartData}
         />
-        
-        {/* Main Dashboard Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mt-6">
-          {/* World Map - Takes 8 columns */}
-          <div className="lg:col-span-8">
-            <div className="bg-white rounded-xl shadow-md p-5">
-              <h2 className="text-lg font-semibold text-slate-700 mb-4">Global Stance Distribution</h2>
-              <WorldMap
-                data={filteredData.countryData}
-                selectedCountry={selectedCountry}
-                onCountrySelect={setSelectedCountry}
-                selectedStances={selectedStances}
-              />
-            </div>
-          </div>
-          
-          {/* Summary Panel - Takes 4 columns */}
-          <div className="lg:col-span-4">
-            <SummaryPanel
-              totals={filteredData.totals}
-              temporalData={filteredData.temporalChartData}
-              dailyData={filteredData.dailyChartData}
-              selectedStances={selectedStances}
-              dateRange={dateRange}
-              selectedCountryData={selectedCountryData}
-              onCloseCountry={() => setSelectedCountry(null)}
-              countryData={filteredData.countryData}
-            />
-          </div>
-        </div>
-      </main>
+      </div>
       
-      {/* Footer */}
-      <footer className="bg-slate-800 text-slate-400 py-4 px-6 mt-8">
-        <div className="max-w-[1600px] mx-auto text-center text-sm">
-          <p>Data visualization for Advanced Data Visualization Course (4DV806)</p>
-          <p className="text-slate-500 mt-1">Dataset: 44,416,753 tweets across 70 countries</p>
-        </div>
-      </footer>
+      {/* Floating Map Legend - Top Right */}
+      <div className="absolute top-4 right-16 z-10">
+        <MapLegend />
+      </div>
     </div>
   );
 }

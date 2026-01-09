@@ -34,7 +34,7 @@ const numericToAlpha2 = {
   860: 'UZ', 548: 'VU', 862: 'VE', 704: 'VN', 887: 'YE', 894: 'ZM', 716: 'ZW'
 };
 
-function WorldMap({ data, selectedCountry, onCountrySelect, selectedStances = ['pro_nato', 'pro_russia', 'neutral'] }) {
+function WorldMap({ data, selectedCountry, onCountrySelect, selectedStances = ['pro_nato', 'pro_russia', 'neutral'], fullscreen = false }) {
   const svgRef = useRef(null);
   const containerRef = useRef(null);
   const zoomRef = useRef(null);
@@ -68,15 +68,20 @@ function WorldMap({ data, selectedCountry, onCountrySelect, selectedStances = ['
   useEffect(() => {
     const handleResize = () => {
       if (containerRef.current) {
-        const { width } = containerRef.current.getBoundingClientRect();
-        setDimensions({ width, height: width * 0.5 });
+        if (fullscreen) {
+          // For fullscreen mode, use window dimensions
+          setDimensions({ width: window.innerWidth, height: window.innerHeight });
+        } else {
+          const { width } = containerRef.current.getBoundingClientRect();
+          setDimensions({ width, height: width * 0.5 });
+        }
       }
     };
     
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  }, [fullscreen]);
   
   // Render map
   useEffect(() => {
@@ -240,16 +245,16 @@ function WorldMap({ data, selectedCountry, onCountrySelect, selectedStances = ['
   };
   
   return (
-    <div ref={containerRef} className="relative">
+    <div ref={containerRef} className={`relative ${fullscreen ? 'w-full h-full' : ''}`}>
       <svg
         ref={svgRef}
         width={dimensions.width}
         height={dimensions.height}
-        className="bg-slate-100 rounded-lg cursor-grab active:cursor-grabbing"
+        className={`cursor-grab active:cursor-grabbing ${fullscreen ? 'bg-slate-200' : 'bg-slate-100 rounded-lg'}`}
       />
       
       {/* Zoom Controls */}
-      <div className="absolute top-4 right-4 flex flex-col gap-1 bg-white/90 backdrop-blur-sm rounded-lg shadow-md overflow-hidden">
+      <div className={`absolute flex flex-col gap-1 bg-white/90 backdrop-blur-sm rounded-lg shadow-md overflow-hidden ${fullscreen ? 'bottom-8 right-4' : 'top-4 right-4'}`}>
         <button
           onClick={handleZoomIn}
           className="p-2 hover:bg-slate-100 transition-colors text-slate-600 hover:text-slate-800"
@@ -283,7 +288,7 @@ function WorldMap({ data, selectedCountry, onCountrySelect, selectedStances = ['
       
       {/* Zoom Level Indicator */}
       {zoomLevel > 1 && (
-        <div className="absolute top-4 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 shadow-md text-xs text-slate-600">
+        <div className={`absolute bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 shadow-md text-xs text-slate-600 ${fullscreen ? 'bottom-8 left-1/2 -translate-x-1/2' : 'top-4 left-1/2 -translate-x-1/2'}`}>
           {zoomLevel.toFixed(1)}x
         </div>
       )}
@@ -354,37 +359,8 @@ function WorldMap({ data, selectedCountry, onCountrySelect, selectedStances = ['
               </>
             )}
           </div>
-          <div className="text-xs text-slate-400 mt-2 pt-2 border-t border-slate-200">
-            Click for details
-          </div>
         </div>
       )}
-      
-      {/* Legend */}
-      <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm rounded-lg p-3 shadow-md">
-        <div className="text-xs font-medium text-slate-700 mb-2">Dominant Stance</div>
-        <div className="space-y-1">
-          <div className="flex items-center gap-2">
-            <div className="w-4 h-3 rounded" style={{ background: 'linear-gradient(to right, #bfdbfe, #1d4ed8)' }}></div>
-            <span className="text-xs text-slate-600">Pro-NATO</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-4 h-3 rounded" style={{ background: 'linear-gradient(to right, #d1d5db, #374151)' }}></div>
-            <span className="text-xs text-slate-600">Neutral</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-4 h-3 rounded" style={{ background: 'linear-gradient(to right, #fecaca, #b91c1c)' }}></div>
-            <span className="text-xs text-slate-600">Pro-Russia</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-4 h-3 rounded bg-slate-100 border border-slate-300"></div>
-            <span className="text-xs text-slate-600">No Data</span>
-          </div>
-        </div>
-        <div className="text-xs text-slate-500 mt-2 pt-2 border-t border-slate-200">
-          Color intensity = Tweet volume
-        </div>
-      </div>
     </div>
   );
 }
