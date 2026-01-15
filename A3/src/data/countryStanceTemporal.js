@@ -1,5 +1,7 @@
-// Country stance temporal data - monthly stance distribution per country
-// This generates monthly breakdowns for each country with realistic temporal shifts
+// Country stance temporal data - monthly stance distribution per country (USER-BASED)
+// Shows monthly user counts by dominant stance per country
+// user_count: Number of unique users with this dominant stance that month
+// total_tweets: Total tweets by these users that month
 
 import countryStanceSummary from './countryStanceSummary';
 
@@ -95,8 +97,8 @@ function generateCountryTemporalData() {
       const stanceData = countryData.find(d => d.stance === stance);
       if (!stanceData) return;
       
-      const totalTweets = stanceData.tweet_count;
-      const totalUsers = stanceData.unique_users;
+      const totalUsers = stanceData.user_count;
+      const totalTweets = stanceData.total_tweets;
       
       months.forEach(({ year, month }, monthIndex) => {
         const key = `${year}-${month}`;
@@ -123,16 +125,16 @@ function generateCountryTemporalData() {
         
         const weight = baseWeight * stanceShift * variation;
         
+        const userCount = Math.round(totalUsers * weight);
         const tweetCount = Math.round(totalTweets * weight);
-        const uniqueUsers = Math.round(totalUsers * weight);
         
         data.push({
           country_code: countryCode,
           stance,
           year,
           month,
-          tweet_count: tweetCount,
-          unique_users: uniqueUsers
+          user_count: userCount,
+          total_tweets: tweetCount
         });
       });
     });

@@ -57,7 +57,7 @@ function CountryDetailPanel({ data, onClose, selectedStances }) {
       <div className="bg-white p-3 rounded-lg shadow-lg border border-slate-200">
         <div className="font-medium text-slate-700">{d.name}</div>
         <div className="text-sm text-slate-600">
-          {formatNumber(d.value)} tweets ({getPercentage(d.value)}%)
+          {formatNumber(d.value)} users ({getPercentage(d.value)}%)
         </div>
       </div>
     );
@@ -78,7 +78,7 @@ function CountryDetailPanel({ data, onClose, selectedStances }) {
                 style={{ backgroundColor: entry.color }}
               ></div>
               <span className="text-slate-600">{stanceLabels[entry.dataKey]}:</span>
-              <span className="font-medium">{formatNumber(entry.value)}</span>
+              <span className="font-medium">{formatNumber(entry.value)} users</span>
             </div>
           ))}
         </div>
@@ -109,10 +109,10 @@ function CountryDetailPanel({ data, onClose, selectedStances }) {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Metrics Cards */}
           <div className="space-y-4">
-            {/* Total Tweets */}
+            {/* Total Users */}
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg p-4">
               <div className="text-3xl font-bold text-blue-700">{formatNumber(data.totals.total)}</div>
-              <div className="text-sm text-blue-600">Total Tweets</div>
+              <div className="text-sm text-blue-600">Total Users</div>
             </div>
             
             {/* Engagement Metrics */}

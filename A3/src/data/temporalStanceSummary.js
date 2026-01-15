@@ -1,4 +1,7 @@
-// Temporal stance summary data - daily aggregated stance distribution
+// Temporal stance summary data - daily aggregated stance distribution (USER-BASED)
+// Shows daily user counts by dominant stance
+// user_count: Number of unique users with this dominant stance that day
+// total_tweets: Total tweets by these users that day
 // Time Period: February 2022 - May 2023
 
 function generateTemporalData() {
@@ -6,11 +9,11 @@ function generateTemporalData() {
   const startDate = new Date(2022, 1, 24); // Feb 24, 2022 - Conflict start
   const endDate = new Date(2023, 4, 31); // May 31, 2023
   
-  // Base tweet counts per stance
+  // Base user counts per stance (primary metric now)
   const baseCounts = {
-    pro_nato: 15000,
-    neutral: 50000,
-    pro_russia: 500
+    pro_nato: 5000,
+    neutral: 18000,
+    pro_russia: 200
   };
   
   // Key events that spike activity
@@ -73,16 +76,16 @@ function generateTemporalData() {
     // Generate data for each stance
     ['pro_nato', 'neutral', 'pro_russia'].forEach(stance => {
       const baseCount = baseCounts[stance];
-      const tweetCount = Math.round(baseCount * multiplier * (0.9 + Math.random() * 0.2));
-      const uniqueUsers = Math.round(tweetCount * (0.3 + Math.random() * 0.2));
+      const userCount = Math.round(baseCount * multiplier * (0.9 + Math.random() * 0.2));
+      const totalTweets = Math.round(userCount * (2.5 + Math.random() * 1.5)); // Each user averages 2.5-4 tweets
       
       data.push({
         year,
         month,
         day,
         stance,
-        tweet_count: tweetCount,
-        unique_users: uniqueUsers
+        user_count: userCount,
+        total_tweets: totalTweets
       });
     });
     

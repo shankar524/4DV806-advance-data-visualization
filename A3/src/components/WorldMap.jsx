@@ -34,11 +34,19 @@ const numericToAlpha2 = {
   860: 'UZ', 548: 'VU', 862: 'VE', 704: 'VN', 887: 'YE', 894: 'ZM', 716: 'ZW'
 };
 
+// Reverse mapping: alpha2 to numeric
+const alpha2ToNumeric = Object.fromEntries(
+  Object.entries(numericToAlpha2).map(([num, alpha]) => [alpha, parseInt(num)])
+);
+
 function WorldMap({ data, selectedCountry, onCountrySelect, selectedStances = ['pro_nato', 'pro_russia', 'neutral'], fullscreen = false }) {
   const svgRef = useRef(null);
   const containerRef = useRef(null);
   const zoomRef = useRef(null);
+  const projectionRef = useRef(null); // Store projection for zoom-to-country
+  const pathRef = useRef(null); // Store path generator
   const transformRef = useRef(d3.zoomIdentity); // Store current transform
+  const prevSelectedCountryRef = useRef(null); // Track previous selection
   const [tooltip, setTooltip] = useState({ show: false, x: 0, y: 0, content: null });
   const [worldData, setWorldData] = useState(null);
   const [dimensions, setDimensions] = useState({ width: 800, height: 450 });
@@ -68,19 +76,24 @@ function WorldMap({ data, selectedCountry, onCountrySelect, selectedStances = ['
   useEffect(() => {
     const handleResize = () => {
       if (containerRef.current) {
-        if (fullscreen) {
-          // For fullscreen mode, use window dimensions
-          setDimensions({ width: window.innerWidth, height: window.innerHeight });
-        } else {
-          const { width } = containerRef.current.getBoundingClientRect();
-          setDimensions({ width, height: width * 0.5 });
-        }
+        const rect = containerRef.current.getBoundingClientRect();
+        setDimensions({ width: rect.width, height: rect.height });
       }
     };
     
     handleResize();
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    
+    // Also observe container size changes
+    const resizeObserver = new ResizeObserver(handleResize);
+    if (containerRef.current) {
+      resizeObserver.observe(containerRef.current);
+    }
+    
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      resizeObserver.disconnect();
+    };
   }, [fullscreen]);
   
   // Render map
@@ -102,9 +115,15 @@ function WorldMap({ data, selectedCountry, onCountrySelect, selectedStances = ['
     
     const path = d3.geoPath().projection(projection);
     
-    // Set up zoom behavior
+    // Store refs for zoom-to-country functionality
+    projectionRef.current = projection;
+    pathRef.current = path;
+    
+    // Set up zoom behavior with pan constraints
     const zoom = d3.zoom()
       .scaleExtent([1, 8])
+      .translateExtent([[0, 0], [width, height]]) // Constrain panning to map bounds
+      .extent([[0, 0], [width, height]])
       .on('zoom', (event) => {
         g.attr('transform', event.transform);
         transformRef.current = event.transform; // Store transform
@@ -128,8 +147,8 @@ function WorldMap({ data, selectedCountry, onCountrySelect, selectedStances = ['
     const russiaColorScale = d3.scaleSequential(d3.interpolateReds).domain([0, 1]);
     const neutralColorScale = d3.scaleSequential(d3.interpolateGreys).domain([0, 1]);
     
-    // Get max tweet count for intensity scaling
-    const maxTweets = Math.max(...data.map(d => d.total), 1);
+    // Get max user count for intensity scaling
+    const maxUsers = Math.max(...data.map(d => d.total), 1);
     
     // Function to get country color
     const getCountryColor = (countryCode) => {
@@ -138,8 +157,8 @@ function WorldMap({ data, selectedCountry, onCountrySelect, selectedStances = ['
         return '#f1f5f9'; // Light gray for no data
       }
       
-      // Intensity based on tweet volume (log scale for better distribution)
-      const intensity = Math.log(countryInfo.total + 1) / Math.log(maxTweets + 1);
+      // Intensity based on user count (log scale for better distribution)
+      const intensity = Math.log(countryInfo.total + 1) / Math.log(maxUsers + 1);
       const scaledIntensity = 0.3 + intensity * 0.7; // Range from 0.3 to 1
       
       // Color based on dominant stance
@@ -172,7 +191,13 @@ function WorldMap({ data, selectedCountry, onCountrySelect, selectedStances = ['
       })
       .attr('stroke-width', d => {
         const alpha2 = numericToAlpha2[d.id];
-        return selectedCountry === alpha2 ? 2 : 0.5;
+        return selectedCountry === alpha2 ? 3 : 0.5;
+      })
+      .attr('opacity', d => {
+        // If a country is selected, defocus other countries
+        if (!selectedCountry) return 1;
+        const alpha2 = numericToAlpha2[d.id];
+        return selectedCountry === alpha2 ? 1 : 0.3;
       })
       .on('mouseenter', (event, d) => {
         const alpha2 = numericToAlpha2[d.id];
@@ -207,6 +232,60 @@ function WorldMap({ data, selectedCountry, onCountrySelect, selectedStances = ['
       });
     
   }, [worldData, dimensions, data, countryDataMap, selectedCountry, onCountrySelect]);
+  
+  // Zoom to selected country when it changes
+  useEffect(() => {
+    if (!worldData || !svgRef.current || !zoomRef.current || !pathRef.current) return;
+    
+    const svg = d3.select(svgRef.current);
+    const { width, height } = dimensions;
+    
+    // If country is deselected, reset to initial view
+    if (!selectedCountry) {
+      if (prevSelectedCountryRef.current) {
+        // Only reset if we had a previous selection
+        transformRef.current = d3.zoomIdentity;
+        svg.transition()
+          .duration(750)
+          .call(zoomRef.current.transform, d3.zoomIdentity);
+      }
+      prevSelectedCountryRef.current = null;
+      return;
+    }
+    
+    // Skip if same country is already selected
+    if (selectedCountry === prevSelectedCountryRef.current) return;
+    prevSelectedCountryRef.current = selectedCountry;
+    
+    // Find the country feature
+    const numericId = alpha2ToNumeric[selectedCountry];
+    const countryFeature = worldData.features.find(f => f.id === numericId);
+    
+    if (!countryFeature) return;
+    
+    // Calculate bounds of the country
+    const bounds = pathRef.current.bounds(countryFeature);
+    const dx = bounds[1][0] - bounds[0][0];
+    const dy = bounds[1][1] - bounds[0][1];
+    const x = (bounds[0][0] + bounds[1][0]) / 2;
+    const y = (bounds[0][1] + bounds[1][1]) / 2;
+    
+    // Calculate scale and translate - add padding
+    const scale = Math.max(1, Math.min(8, 0.7 / Math.max(dx / width, dy / height)));
+    const translate = [width / 2 - scale * x, height / 2 - scale * y];
+    
+    // Create new transform
+    const newTransform = d3.zoomIdentity
+      .translate(translate[0], translate[1])
+      .scale(scale);
+    
+    // Store and apply transform with animation
+    transformRef.current = newTransform;
+    svg.transition()
+      .duration(750)
+      .call(zoomRef.current.transform, newTransform);
+      
+  }, [selectedCountry, worldData, dimensions]);
   
   // Format number
   const formatNumber = (num) => {
@@ -245,16 +324,17 @@ function WorldMap({ data, selectedCountry, onCountrySelect, selectedStances = ['
   };
   
   return (
-    <div ref={containerRef} className={`relative ${fullscreen ? 'w-full h-full' : ''}`}>
+    <div ref={containerRef} className={`relative ${fullscreen ? 'w-full h-full' : ''} overflow-hidden`}>
       <svg
         ref={svgRef}
         width={dimensions.width}
         height={dimensions.height}
-        className={`cursor-grab active:cursor-grabbing ${fullscreen ? 'bg-slate-200' : 'bg-slate-100 rounded-lg'}`}
+        className={`cursor-grab active:cursor-grabbing bg-slate-100`}
+        style={{ display: 'block' }}
       />
       
       {/* Zoom Controls */}
-      <div className={`absolute flex flex-col gap-1 bg-white/90 backdrop-blur-sm rounded-lg shadow-md overflow-hidden ${fullscreen ? 'bottom-8 right-4' : 'top-4 right-4'}`}>
+      <div className="absolute bottom-4 right-4 flex flex-col gap-1 bg-white/90 backdrop-blur-sm rounded-lg shadow-md overflow-hidden">
         <button
           onClick={handleZoomIn}
           className="p-2 hover:bg-slate-100 transition-colors text-slate-600 hover:text-slate-800"
@@ -288,7 +368,7 @@ function WorldMap({ data, selectedCountry, onCountrySelect, selectedStances = ['
       
       {/* Zoom Level Indicator */}
       {zoomLevel > 1 && (
-        <div className={`absolute bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 shadow-md text-xs text-slate-600 ${fullscreen ? 'bottom-8 left-1/2 -translate-x-1/2' : 'top-4 left-1/2 -translate-x-1/2'}`}>
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 shadow-md text-xs text-slate-600">
           {zoomLevel.toFixed(1)}x
         </div>
       )}
@@ -308,9 +388,9 @@ function WorldMap({ data, selectedCountry, onCountrySelect, selectedStances = ['
             {tooltip.content.country_name}
           </div>
           <div className="space-y-1 text-slate-600">
-            {/* Show total count always when 1 stance selected, or as header for multiple */}
+            {/* Show total user count */}
             <div className="flex justify-between">
-              <span>Total:</span>
+              <span>Total Users:</span>
               <span className="font-medium">{formatNumber(tooltip.content.total)}</span>
             </div>
             

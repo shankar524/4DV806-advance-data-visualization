@@ -1,19 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import Flag from 'react-world-flags';
-import { FiSearch, FiX, FiGlobe, FiRotateCcw, FiInfo } from 'react-icons/fi';
-import { LineChart, Line, XAxis, YAxis, ResponsiveContainer, Tooltip } from 'recharts';
-import Slider from 'rc-slider';
-import 'rc-slider/assets/index.css';
-
-// Milestone dates for the date slider
-const milestones = [
-  { date: new Date(2022, 1, 24), label: 'Invasion Start', description: 'Russia invades Ukraine' },
-  { date: new Date(2022, 3, 3), label: 'Bucha Massacre', description: 'Civilian atrocities discovered' },
-  { date: new Date(2022, 4, 20), label: 'Mariupol Falls', description: 'Azovstal steel plant surrenders' },
-  { date: new Date(2022, 8, 21), label: 'Mobilization', description: 'Russia announces mobilization' },
-  { date: new Date(2022, 10, 11), label: 'Kherson Liberation', description: 'Ukraine recaptures Kherson' },
-  { date: new Date(2023, 1, 24), label: '1 Year of War', description: 'One year since invasion' }
-];
+import { FiSearch, FiX, FiRotateCcw, FiInfo } from 'react-icons/fi';
 
 const stanceConfig = {
   pro_nato: { label: 'Pro-NATO/Ukraine', color: '#3b82f6', bgColor: 'bg-blue-500' },
@@ -38,27 +25,37 @@ const ControlPanel = ({
   onReset,
   minDate,
   maxDate,
-  temporalChartData
+  showTrendChart = false
 }) => {
-  const [hoveredMilestone, setHoveredMilestone] = useState(null);
-  
-  // Calculate position for date values
-  const totalDays = (maxDate - minDate) / (1000 * 60 * 60 * 24);
-  
-  const getPositionPercent = (date) => {
-    const days = (date - minDate) / (1000 * 60 * 60 * 24);
-    return (days / totalDays) * 100;
+  // Format date for input field (YYYY-MM)
+  const formatDateForInput = (date) => {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    return `${year}-${month}`;
   };
   
-  const percentToDate = (percent) => {
-    const days = (percent / 100) * totalDays;
-    return new Date(minDate.getTime() + days * 24 * 60 * 60 * 1000);
+  // Parse date from input field
+  const parseDateFromInput = (value, isEndDate = false) => {
+    const [year, month] = value.split('-').map(Number);
+    if (isEndDate) {
+      // For end date, use the last day of the month
+      return new Date(year, month, 0);
+    }
+    return new Date(year, month - 1, 1);
   };
   
-  const handleSliderChange = (values) => {
-    const startDate = percentToDate(values[0]);
-    const endDate = percentToDate(values[1]);
-    setDateRange([startDate, endDate]);
+  const handleStartDateChange = (e) => {
+    const newStart = parseDateFromInput(e.target.value, false);
+    if (newStart >= minDate && newStart <= dateRange[1]) {
+      setDateRange([newStart, dateRange[1]]);
+    }
+  };
+  
+  const handleEndDateChange = (e) => {
+    const newEnd = parseDateFromInput(e.target.value, true);
+    if (newEnd <= maxDate && newEnd >= dateRange[0]) {
+      setDateRange([dateRange[0], newEnd]);
+    }
   };
   
   const handleStanceToggle = (stance) => {
@@ -69,10 +66,6 @@ const ControlPanel = ({
     } else {
       setSelectedStances([...selectedStances, stance]);
     }
-  };
-  
-  const formatDate = (date) => {
-    return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
   };
   
   // Group countries by dominant stance
@@ -94,41 +87,41 @@ const ControlPanel = ({
   const [hoveredStance, setHoveredStance] = useState(null);
   
   return (
-    <div className="w-[480px] bg-white/95 backdrop-blur-sm rounded-xl shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto">
+    <div className="h-full bg-white overflow-y-auto">
       {/* Header */}
-      <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white px-5 py-4">
+      <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white px-4 py-3">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-xl font-bold">Tweet Analysis on Russia-Ukraine Conflict</h1>
-            <p className="text-blue-200 text-sm">Using Tweet volume</p>
+            <h1 className="text-lg font-bold">Russia-Ukraine Conflict</h1>
+            <p className="text-blue-200 text-xs">Tweet Stance Analysis</p>
           </div>
         </div>
       </div>
       
       {/* Search */}
-      <div className="px-4 pt-4 pb-2">
+      <div className="px-3 pt-3 pb-2">
         <div className="relative">
-          <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+          <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={14} />
           <input
             type="text"
             placeholder="Search countries..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full pl-9 pr-4 py-2 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           />
           {searchQuery && (
             <button
               onClick={() => setSearchQuery('')}
               className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
             >
-              <FiX size={16} />
+              <FiX size={14} />
             </button>
           )}
         </div>
         
         {/* Search Results Dropdown */}
         {searchResults.length > 0 && (
-          <div className="absolute z-20 w-[440px] mt-1 bg-white rounded-lg shadow-lg border border-slate-200 max-h-56 overflow-y-auto">
+          <div className="absolute z-20 w-[290px] mt-1 bg-white rounded-lg shadow-lg border border-slate-200 max-h-56 overflow-y-auto">
             {searchResults.map(country => (
               <button
                 key={country.country_code}
@@ -148,88 +141,67 @@ const ControlPanel = ({
       
       {/* FILTERS SECTION */}
       <div className="bg-slate-50/50">
-        <div className="px-5 py-3 border-b border-slate-200 flex items-center justify-between">
-          <span className="text-sm font-semibold text-slate-700 uppercase tracking-wider">Filters</span>
+        <div className="px-3 py-2 border-b border-slate-200 flex items-center justify-between">
+          <span className="text-xs font-semibold text-slate-700 uppercase tracking-wider">Filters</span>
           <button
             onClick={onReset}
-            className="bg-slate-200 hover:bg-slate-300 text-slate-700 px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 transition-colors"
+            className="bg-slate-200 hover:bg-slate-300 text-slate-700 px-2 py-1 rounded text-xs font-medium flex items-center gap-1 transition-colors"
           >
-            <FiRotateCcw size={12} />
-            Reset All
+            <FiRotateCcw size={10} />
+            Reset
           </button>
         </div>
         
-        {/* Date Range Slider */}
-        <div className="px-5 py-4">
+        {/* Date Range Inputs */}
+        <div className="px-3 py-3">
           <div className="flex items-center justify-between mb-3">
-            <span className="text-sm font-medium text-slate-700">Date Range</span>
-            <span className="text-sm text-slate-600 bg-slate-100 px-2 py-1 rounded">{formatDate(dateRange[0])} - {formatDate(dateRange[1])}</span>
+            <span className="text-xs font-medium text-slate-700">Date Range</span>
           </div>
         
-        <div className="relative mt-4 pb-2">
-          {/* RC Slider Range */}
-          <div className="relative">
-            {/* Milestone Markers - positioned on top of slider */}
-            {milestones.map((m, i) => {
-              const pos = getPositionPercent(m.date);
-              if (pos < 0 || pos > 100) return null;
-              // Determine tooltip alignment based on position
-              const tooltipAlign = pos < 20 ? 'left-0' : pos > 80 ? 'right-0' : 'left-1/2 -translate-x-1/2';
-              return (
-                <div
-                  key={i}
-                  className="absolute transform -translate-x-1/2 z-10 cursor-pointer"
-                  style={{ left: `${pos}%`, top: -2 }}
-                  onMouseEnter={() => setHoveredMilestone(i)}
-                  onMouseLeave={() => setHoveredMilestone(null)}
-                >
-                  <div className="w-0.5 h-4 bg-slate-600"></div>
-                  {hoveredMilestone === i && (
-                    <div className={`absolute bottom-6 ${tooltipAlign} bg-slate-700 text-white text-xs px-2 py-1.5 rounded whitespace-nowrap z-50 shadow-lg`}>
-                      <div className="font-medium">{m.label}</div>
-                      <div className="text-[10px] opacity-80">{m.description}</div>
-                      <div className="text-[10px] opacity-60">{m.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</div>
-                    </div>
-                  )}
-                </div>
-              );
-            })}
+          <div className="grid grid-cols-2 gap-3">
+            {/* Start Date */}
+            <div>
+              <label className="block text-[10px] text-slate-500 mb-1">Start Date</label>
+              <div className="relative">
+                <input
+                  type="month"
+                  value={formatDateForInput(dateRange[0])}
+                  min={formatDateForInput(minDate)}
+                  max={formatDateForInput(dateRange[1])}
+                  onChange={handleStartDateChange}
+                  className="w-full px-2 py-1.5 text-xs border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white"
+                />
+              </div>
+            </div>
+            
+            {/* End Date */}
+            <div>
+              <label className="block text-[10px] text-slate-500 mb-1">End Date</label>
+              <div className="relative">
+                <input
+                  type="month"
+                  value={formatDateForInput(dateRange[1])}
+                  min={formatDateForInput(dateRange[0])}
+                  max={formatDateForInput(maxDate)}
+                  onChange={handleEndDateChange}
+                  className="w-full px-2 py-1.5 text-xs border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white"
+                />
+              </div>
+            </div>
           </div>
           
-          <Slider
-            range
-            min={0}
-            max={100}
-            value={[getPositionPercent(dateRange[0]), getPositionPercent(dateRange[1])]}
-            onChange={handleSliderChange}
-            allowCross={false}
-            styles={{
-              track: { backgroundColor: '#3b82f6', height: 6 },
-              rail: { backgroundColor: '#e2e8f0', height: 6 },
-              handle: {
-                backgroundColor: '#fff',
-                borderColor: '#3b82f6',
-                borderWidth: 2,
-                width: 16,
-                height: 16,
-                marginTop: -5,
-                opacity: 1,
-                boxShadow: '0 1px 3px rgba(0,0,0,0.2)'
-              }
-            }}
-          />
-        </div>
-        
-        {/* Timeline labels */}
-        <div className="flex justify-between text-[10px] text-slate-500 mt-1 px-1">
-          <span>Feb 2022</span>
-          <span>May 2023</span>
-        </div>
+          {/* Quick hint about brush selection */}
+          <div className="mt-2 text-[10px] text-slate-400 flex items-center gap-1">
+            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span>Drag on the trend chart to select date range</span>
+          </div>
         </div>
       
         {/* Stance Filter */}
-        <div className="px-5 py-4 border-t border-slate-100">
-          <span className="text-sm font-medium text-slate-700">Stance Filter</span>
+        <div className="px-3 py-3 border-t border-slate-100">
+          <span className="text-xs font-medium text-slate-700">Stance Filter</span>
           <div className="mt-3 space-y-2">
             {Object.entries(stanceConfig).map(([key, config]) => (
               <label key={key} className="flex items-center gap-2 cursor-pointer group">
@@ -261,11 +233,11 @@ const ControlPanel = ({
       
       {/* STATISTICS SECTION */}
       <div className="bg-white">
-        <div className="px-5 py-3 border-b border-slate-200 border-t-2 border-t-slate-300">
-          <span className="text-sm font-semibold text-slate-700 uppercase tracking-wider">Statistics</span>
+        <div className="px-3 py-2 border-b border-slate-200 border-t-2 border-t-slate-300">
+          <span className="text-xs font-semibold text-slate-700 uppercase tracking-wider">Statistics</span>
         </div>
         
-        <div className="px-5 py-4">
+        <div className="px-3 py-3">
         
         {/* Show country-specific stats when a country is selected */}
         {selectedCountryData ? (
@@ -281,19 +253,19 @@ const ControlPanel = ({
               </button>
             </div>
             
-            {/* Tweets by Stance - Progress Bar */}
+            {/* Users by Stance - Progress Bar */}
             <div>
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-sm font-medium text-slate-700">Tweets by Stance</span>
-                <span className="text-sm font-semibold text-slate-800">
+              <div className="flex items-center justify-between mb-1.5">
+                <span className="text-xs font-medium text-slate-700">Users by Stance</span>
+                <span className="text-xs font-semibold text-slate-800">
                   {selectedCountryData.totals.total >= 1000000 
                     ? `${(selectedCountryData.totals.total / 1000000).toFixed(1)}M` 
                     : selectedCountryData.totals.total >= 1000 
                       ? `${(selectedCountryData.totals.total / 1000).toFixed(0)}K`
-                      : selectedCountryData.totals.total.toLocaleString()} tweets
+                      : selectedCountryData.totals.total.toLocaleString()} users
                 </span>
               </div>
-              <div className="flex h-4 rounded-full overflow-hidden bg-slate-200">
+              <div className="flex h-3 rounded-full overflow-hidden bg-slate-200">
                 {selectedCountryData.totals.pro_nato > 0 && (
                   <div
                     className="bg-blue-500"
@@ -353,23 +325,131 @@ const ControlPanel = ({
             
             {/* Unique Users */}
             <div className="flex items-center justify-between pt-2 border-t border-slate-100">
-              <span className="text-sm text-slate-600">Unique Tweet Authors</span>
-              <span className="text-sm font-semibold text-slate-800">
-                {selectedCountryData.totals.unique_users >= 1000000 
-                  ? `${(selectedCountryData.totals.unique_users / 1000000).toFixed(1)}M` 
-                  : selectedCountryData.totals.unique_users >= 1000 
-                    ? `${(selectedCountryData.totals.unique_users / 1000).toFixed(0)}K`
-                    : selectedCountryData.totals.unique_users.toLocaleString()}
+              <span className="text-xs text-slate-600">Total Tweets</span>
+              <span className="text-xs font-semibold text-slate-800">
+                {selectedCountryData.totals.total_tweets >= 1000000 
+                  ? `${(selectedCountryData.totals.total_tweets / 1000000).toFixed(1)}M` 
+                  : selectedCountryData.totals.total_tweets >= 1000 
+                    ? `${(selectedCountryData.totals.total_tweets / 1000).toFixed(0)}K`
+                    : (selectedCountryData.totals.total_tweets || 0).toLocaleString()}
               </span>
+            </div>
+            
+            {/* Tweets by Stance - Progress Bar (Country) */}
+            <div className="pt-2">
+              <div className="flex items-center justify-between mb-1.5">
+                <span className="text-xs font-medium text-slate-700">Tweets by Stance</span>
+                <span className="text-xs font-semibold text-slate-800">
+                  {selectedCountryData.totals.total_tweets >= 1000000 
+                    ? `${(selectedCountryData.totals.total_tweets / 1000000).toFixed(1)}M` 
+                    : selectedCountryData.totals.total_tweets >= 1000 
+                      ? `${(selectedCountryData.totals.total_tweets / 1000).toFixed(0)}K`
+                      : (selectedCountryData.totals.total_tweets || 0).toLocaleString()} tweets
+                </span>
+              </div>
+              <div className="flex h-3 rounded-full overflow-hidden bg-slate-200">
+                {(selectedCountryData.totals.pro_nato_tweets || 0) > 0 && (
+                  <div
+                    className="bg-blue-500"
+                    style={{ width: `${((selectedCountryData.totals.pro_nato_tweets || 0) / selectedCountryData.totals.total_tweets) * 100}%` }}
+                  ></div>
+                )}
+                {(selectedCountryData.totals.neutral_tweets || 0) > 0 && (
+                  <div
+                    className="bg-gray-400"
+                    style={{ width: `${((selectedCountryData.totals.neutral_tweets || 0) / selectedCountryData.totals.total_tweets) * 100}%` }}
+                  ></div>
+                )}
+                {(selectedCountryData.totals.pro_russia_tweets || 0) > 0 && (
+                  <div
+                    className="bg-red-500"
+                    style={{ width: `${((selectedCountryData.totals.pro_russia_tweets || 0) / selectedCountryData.totals.total_tweets) * 100}%` }}
+                  ></div>
+                )}
+              </div>
+              {/* Tweet counts legend */}
+              <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2">
+                <div className="flex items-center gap-1.5">
+                  <div className="w-2.5 h-2.5 rounded-full bg-blue-500"></div>
+                  <span className="text-xs text-slate-700">
+                    {(selectedCountryData.totals.pro_nato_tweets || 0) >= 1000000 
+                      ? `${((selectedCountryData.totals.pro_nato_tweets || 0) / 1000000).toFixed(1)}M` 
+                      : (selectedCountryData.totals.pro_nato_tweets || 0) >= 1000 
+                        ? `${((selectedCountryData.totals.pro_nato_tweets || 0) / 1000).toFixed(0)}K`
+                        : (selectedCountryData.totals.pro_nato_tweets || 0).toLocaleString()}
+                    ({selectedCountryData.totals.total_tweets > 0 ? (((selectedCountryData.totals.pro_nato_tweets || 0) / selectedCountryData.totals.total_tweets) * 100).toFixed(0) : 0}%)
+                  </span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <div className="w-2.5 h-2.5 rounded-full bg-gray-400"></div>
+                  <span className="text-xs text-slate-700">
+                    {(selectedCountryData.totals.neutral_tweets || 0) >= 1000000 
+                      ? `${((selectedCountryData.totals.neutral_tweets || 0) / 1000000).toFixed(1)}M` 
+                      : (selectedCountryData.totals.neutral_tweets || 0) >= 1000 
+                        ? `${((selectedCountryData.totals.neutral_tweets || 0) / 1000).toFixed(0)}K`
+                        : (selectedCountryData.totals.neutral_tweets || 0).toLocaleString()}
+                    ({selectedCountryData.totals.total_tweets > 0 ? (((selectedCountryData.totals.neutral_tweets || 0) / selectedCountryData.totals.total_tweets) * 100).toFixed(0) : 0}%)
+                  </span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <div className="w-2.5 h-2.5 rounded-full bg-red-500"></div>
+                  <span className="text-xs text-slate-700">
+                    {(selectedCountryData.totals.pro_russia_tweets || 0) >= 1000000 
+                      ? `${((selectedCountryData.totals.pro_russia_tweets || 0) / 1000000).toFixed(1)}M` 
+                      : (selectedCountryData.totals.pro_russia_tweets || 0) >= 1000 
+                        ? `${((selectedCountryData.totals.pro_russia_tweets || 0) / 1000).toFixed(0)}K`
+                        : (selectedCountryData.totals.pro_russia_tweets || 0).toLocaleString()}
+                    ({selectedCountryData.totals.total_tweets > 0 ? (((selectedCountryData.totals.pro_russia_tweets || 0) / selectedCountryData.totals.total_tweets) * 100).toFixed(0) : 0}%)
+                  </span>
+                </div>
+              </div>
+            </div>
+            
+            {/* Average Tweets per User (Country) */}
+            <div className="pt-3 border-t border-slate-100">
+              <div className="flex items-center justify-between mb-1.5">
+                <span className="text-xs font-medium text-slate-700">Avg Tweets per User</span>
+                <span className="text-xs font-semibold text-slate-800">
+                  {selectedCountryData.totals.total > 0 
+                    ? (selectedCountryData.totals.total_tweets / selectedCountryData.totals.total).toFixed(1) 
+                    : '0'}
+                </span>
+              </div>
+              <div className="flex flex-wrap gap-x-4 gap-y-1">
+                <div className="flex items-center gap-1.5">
+                  <div className="w-2.5 h-2.5 rounded-full bg-blue-500"></div>
+                  <span className="text-xs text-slate-700">
+                    {selectedCountryData.totals.pro_nato > 0 
+                      ? ((selectedCountryData.totals.pro_nato_tweets || 0) / selectedCountryData.totals.pro_nato).toFixed(1) 
+                      : '0'}
+                  </span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <div className="w-2.5 h-2.5 rounded-full bg-gray-400"></div>
+                  <span className="text-xs text-slate-700">
+                    {selectedCountryData.totals.neutral > 0 
+                      ? ((selectedCountryData.totals.neutral_tweets || 0) / selectedCountryData.totals.neutral).toFixed(1) 
+                      : '0'}
+                  </span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <div className="w-2.5 h-2.5 rounded-full bg-red-500"></div>
+                  <span className="text-xs text-slate-700">
+                    {selectedCountryData.totals.pro_russia > 0 
+                      ? ((selectedCountryData.totals.pro_russia_tweets || 0) / selectedCountryData.totals.pro_russia).toFixed(1) 
+                      : '0'}
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         ) : (
           <>
         {/* Countries by Stance */}
-        <div className="mb-4">
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-sm font-medium text-slate-700">Countries by Stance</span>
-            <span className="text-sm font-semibold text-slate-800">{countryData.length} countries</span>
+        <div className="mb-3">
+          <div className="flex items-center justify-between mb-1.5">
+            <span className="text-xs font-medium text-slate-700">Countries by Stance</span>
+            <span className="text-xs font-semibold text-slate-800">{countryData.length} countries</span>
           </div>
           <div className="flex flex-wrap gap-x-4 gap-y-1">
             {selectedStances.includes('pro_nato') && countriesByStance.pro_nato.length > 0 && (
@@ -480,29 +560,80 @@ const ControlPanel = ({
           </div>
         </div>
         
-        {/* Tweets by Stance Bar */}
+        {/* Users by Stance Bar */}
         <div>
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-sm font-medium text-slate-700">Tweets by Stance</span>
-            <span className="text-sm font-semibold text-slate-800">{totals.tweets >= 1000000 ? `${(totals.tweets / 1000000).toFixed(1)}M` : `${(totals.tweets / 1000).toFixed(0)}K`} tweets</span>
+          <div className="flex items-center justify-between mb-1.5">
+            <span className="text-xs font-medium text-slate-700">Users by Stance</span>
+            <span className="text-xs font-semibold text-slate-800">{totals.users >= 1000000 ? `${(totals.users / 1000000).toFixed(1)}M` : `${(totals.users / 1000).toFixed(0)}K`} users</span>
           </div>
-          <div className="flex h-4 rounded-full overflow-hidden bg-slate-200">
+          <div className="flex h-3 rounded-full overflow-hidden bg-slate-200">
             {selectedStances.includes('pro_nato') && totals.pro_nato > 0 && (
               <div
                 className="bg-blue-500"
-                style={{ width: `${(totals.pro_nato / totals.tweets) * 100}%` }}
+                style={{ width: `${(totals.pro_nato / totals.users) * 100}%` }}
               ></div>
             )}
             {selectedStances.includes('neutral') && totals.neutral > 0 && (
               <div
                 className="bg-gray-400"
-                style={{ width: `${(totals.neutral / totals.tweets) * 100}%` }}
+                style={{ width: `${(totals.neutral / totals.users) * 100}%` }}
               ></div>
             )}
             {selectedStances.includes('pro_russia') && totals.pro_russia > 0 && (
               <div
                 className="bg-red-500"
-                style={{ width: `${(totals.pro_russia / totals.tweets) * 100}%` }}
+                style={{ width: `${(totals.pro_russia / totals.users) * 100}%` }}
+              ></div>
+            )}
+          </div>
+          {/* User counts legend */}
+          <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2">
+            {selectedStances.includes('pro_nato') && (
+              <div className="flex items-center gap-1.5">
+                <div className="w-2.5 h-2.5 rounded-full bg-blue-500"></div>
+                <span className="text-xs text-slate-700">{(totals.pro_nato / 1000000).toFixed(1)}M ({((totals.pro_nato / totals.users) * 100).toFixed(0)}%)</span>
+              </div>
+            )}
+            {selectedStances.includes('neutral') && (
+              <div className="flex items-center gap-1.5">
+                <div className="w-2.5 h-2.5 rounded-full bg-gray-400"></div>
+                <span className="text-xs text-slate-700">{(totals.neutral / 1000000).toFixed(1)}M ({((totals.neutral / totals.users) * 100).toFixed(0)}%)</span>
+              </div>
+            )}
+            {selectedStances.includes('pro_russia') && (
+              <div className="flex items-center gap-1.5">
+                <div className="w-2.5 h-2.5 rounded-full bg-red-500"></div>
+                <span className="text-xs text-slate-700">{(totals.pro_russia / 1000000).toFixed(1)}M ({((totals.pro_russia / totals.users) * 100).toFixed(0)}%)</span>
+              </div>
+            )}
+          </div>
+        </div>
+        
+        {/* Tweets by Stance Bar (Global) */}
+        <div className="mt-4">
+          <div className="flex items-center justify-between mb-1.5">
+            <span className="text-xs font-medium text-slate-700">Tweets by Stance</span>
+            <span className="text-xs font-semibold text-slate-800">
+              {totals.tweets >= 1000000 ? `${(totals.tweets / 1000000).toFixed(1)}M` : `${(totals.tweets / 1000).toFixed(0)}K`} tweets
+            </span>
+          </div>
+          <div className="flex h-3 rounded-full overflow-hidden bg-slate-200">
+            {selectedStances.includes('pro_nato') && (totals.pro_nato_tweets || 0) > 0 && (
+              <div
+                className="bg-blue-500"
+                style={{ width: `${((totals.pro_nato_tweets || 0) / totals.tweets) * 100}%` }}
+              ></div>
+            )}
+            {selectedStances.includes('neutral') && (totals.neutral_tweets || 0) > 0 && (
+              <div
+                className="bg-gray-400"
+                style={{ width: `${((totals.neutral_tweets || 0) / totals.tweets) * 100}%` }}
+              ></div>
+            )}
+            {selectedStances.includes('pro_russia') && (totals.pro_russia_tweets || 0) > 0 && (
+              <div
+                className="bg-red-500"
+                style={{ width: `${((totals.pro_russia_tweets || 0) / totals.tweets) * 100}%` }}
               ></div>
             )}
           </div>
@@ -511,19 +642,61 @@ const ControlPanel = ({
             {selectedStances.includes('pro_nato') && (
               <div className="flex items-center gap-1.5">
                 <div className="w-2.5 h-2.5 rounded-full bg-blue-500"></div>
-                <span className="text-xs text-slate-700">{(totals.pro_nato / 1000000).toFixed(1)}M ({((totals.pro_nato / totals.tweets) * 100).toFixed(0)}%)</span>
+                <span className="text-xs text-slate-700">
+                  {((totals.pro_nato_tweets || 0) / 1000000).toFixed(1)}M ({totals.tweets > 0 ? (((totals.pro_nato_tweets || 0) / totals.tweets) * 100).toFixed(0) : 0}%)
+                </span>
               </div>
             )}
             {selectedStances.includes('neutral') && (
               <div className="flex items-center gap-1.5">
                 <div className="w-2.5 h-2.5 rounded-full bg-gray-400"></div>
-                <span className="text-xs text-slate-700">{(totals.neutral / 1000000).toFixed(1)}M ({((totals.neutral / totals.tweets) * 100).toFixed(0)}%)</span>
+                <span className="text-xs text-slate-700">
+                  {((totals.neutral_tweets || 0) / 1000000).toFixed(1)}M ({totals.tweets > 0 ? (((totals.neutral_tweets || 0) / totals.tweets) * 100).toFixed(0) : 0}%)
+                </span>
               </div>
             )}
             {selectedStances.includes('pro_russia') && (
               <div className="flex items-center gap-1.5">
                 <div className="w-2.5 h-2.5 rounded-full bg-red-500"></div>
-                <span className="text-xs text-slate-700">{(totals.pro_russia / 1000000).toFixed(1)}M ({((totals.pro_russia / totals.tweets) * 100).toFixed(0)}%)</span>
+                <span className="text-xs text-slate-700">
+                  {((totals.pro_russia_tweets || 0) / 1000000).toFixed(1)}M ({totals.tweets > 0 ? (((totals.pro_russia_tweets || 0) / totals.tweets) * 100).toFixed(0) : 0}%)
+                </span>
+              </div>
+            )}
+          </div>
+        </div>
+        
+        {/* Average Tweets per User (Global) */}
+        <div className="mt-4 pt-3 border-t border-slate-100">
+          <div className="flex items-center justify-between mb-1.5">
+            <span className="text-xs font-medium text-slate-700">Avg Tweets per User</span>
+            <span className="text-xs font-semibold text-slate-800">
+              {totals.users > 0 ? (totals.tweets / totals.users).toFixed(1) : '0'}
+            </span>
+          </div>
+          <div className="flex flex-wrap gap-x-4 gap-y-1">
+            {selectedStances.includes('pro_nato') && (
+              <div className="flex items-center gap-1.5">
+                <div className="w-2.5 h-2.5 rounded-full bg-blue-500"></div>
+                <span className="text-xs text-slate-700">
+                  {totals.pro_nato > 0 ? ((totals.pro_nato_tweets || 0) / totals.pro_nato).toFixed(1) : '0'}
+                </span>
+              </div>
+            )}
+            {selectedStances.includes('neutral') && (
+              <div className="flex items-center gap-1.5">
+                <div className="w-2.5 h-2.5 rounded-full bg-gray-400"></div>
+                <span className="text-xs text-slate-700">
+                  {totals.neutral > 0 ? ((totals.neutral_tweets || 0) / totals.neutral).toFixed(1) : '0'}
+                </span>
+              </div>
+            )}
+            {selectedStances.includes('pro_russia') && (
+              <div className="flex items-center gap-1.5">
+                <div className="w-2.5 h-2.5 rounded-full bg-red-500"></div>
+                <span className="text-xs text-slate-700">
+                  {totals.pro_russia > 0 ? ((totals.pro_russia_tweets || 0) / totals.pro_russia).toFixed(1) : '0'}
+                </span>
               </div>
             )}
           </div>
@@ -532,90 +705,6 @@ const ControlPanel = ({
         )}
         </div>
       </div>
-      
-      {/* Temporal Trend Chart */}
-      {temporalChartData && temporalChartData.length > 0 && (
-        <div className="px-5 py-4 border-t border-slate-100">
-          <span className="text-sm font-medium text-slate-700 uppercase tracking-wide">Trends</span>
-          <div className="h-44 mt-3">
-            <ResponsiveContainer width="100%" height="100%">
-              <LineChart data={temporalChartData} margin={{ top: 5, right: 10, bottom: 20, left: 40 }}>
-                <XAxis
-                  dataKey="date"
-                  tick={{ fontSize: 10, fill: '#475569' }}
-                  axisLine={{ stroke: '#cbd5e1' }}
-                  tickLine={{ stroke: '#cbd5e1' }}
-                  tickFormatter={(value) => {
-                    const date = new Date(value + '-01');
-                    return date.toLocaleDateString('en-US', { month: 'short', year: '2-digit' });
-                  }}
-                  interval="preserveStartEnd"
-                />
-                <YAxis
-                  tick={{ fontSize: 10, fill: '#475569' }}
-                  axisLine={{ stroke: '#cbd5e1' }}
-                  tickLine={{ stroke: '#cbd5e1' }}
-                  tickFormatter={(value) => value >= 1000 ? `${(value / 1000).toFixed(0)}K` : value}
-                  width={35}
-                />
-                <Tooltip
-                  content={({ active, payload, label }) => {
-                    if (active && payload && payload.length > 0) {
-                      const date = new Date(label + '-01');
-                      const formattedDate = date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
-                      return (
-                        <div className="bg-white/95 backdrop-blur-sm px-3 py-2 rounded-lg shadow-lg border border-slate-200 text-xs">
-                          <div className="font-medium text-slate-700 mb-1">{formattedDate}</div>
-                          {payload.map((entry, index) => (
-                            <div key={index} className="flex items-center gap-2">
-                              <div className="w-2 h-2 rounded-full" style={{ backgroundColor: entry.color }}></div>
-                              <span className="text-slate-600">{stanceConfig[entry.dataKey]?.label}:</span>
-                              <span className="font-medium" style={{ color: entry.color }}>
-                                {(entry.value / 1000).toFixed(0)}K
-                              </span>
-                            </div>
-                          ))}
-                        </div>
-                      );
-                    }
-                    return null;
-                  }}
-                />
-                {selectedStances.includes('pro_nato') && (
-                  <Line
-                    type="monotone"
-                    dataKey="pro_nato"
-                    stroke={stanceConfig.pro_nato.color}
-                    strokeWidth={2}
-                    dot={false}
-                    activeDot={{ r: 3 }}
-                  />
-                )}
-                {selectedStances.includes('neutral') && (
-                  <Line
-                    type="monotone"
-                    dataKey="neutral"
-                    stroke={stanceConfig.neutral.color}
-                    strokeWidth={2}
-                    dot={false}
-                    activeDot={{ r: 3 }}
-                  />
-                )}
-                {selectedStances.includes('pro_russia') && (
-                  <Line
-                    type="monotone"
-                    dataKey="pro_russia"
-                    stroke={stanceConfig.pro_russia.color}
-                    strokeWidth={2}
-                    dot={false}
-                    activeDot={{ r: 3 }}
-                  />
-                )}
-              </LineChart>
-            </ResponsiveContainer>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

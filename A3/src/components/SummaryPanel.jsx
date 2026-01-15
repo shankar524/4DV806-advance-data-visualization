@@ -120,7 +120,7 @@ function SummaryPanel({
                 style={{ backgroundColor: entry.color }}
               ></div>
               <span className="text-slate-600">{stanceLabels[entry.dataKey]}:</span>
-              <span className="font-medium">{formatNumber(entry.value)}</span>
+              <span className="font-medium">{formatNumber(entry.value)} users</span>
             </div>
           ))}
         </div>
@@ -130,11 +130,11 @@ function SummaryPanel({
   
   // Calculate percentages
   const getPercentage = (value) => {
-    const total = isCountryView ? displayTotals.total : displayTotals.tweets;
+    const total = isCountryView ? displayTotals.total : displayTotals.users;
     return total > 0 ? (value / total * 100).toFixed(1) : 0;
   };
 
-  const totalTweets = isCountryView ? displayTotals.total : displayTotals.tweets;
+  const totalUsers = isCountryView ? displayTotals.total : displayTotals.users;
   
   return (
     <div className="bg-white rounded-xl shadow-md p-4">
@@ -258,11 +258,11 @@ function SummaryPanel({
         </div>
       )}
       
-      {/* Tweets by Stance Distribution */}
+      {/* Users by Stance Distribution */}
       <div className="mb-4">
         <h3 className="text-sm font-medium text-slate-600 mb-2">
-          Tweets by Stance
-          <span className="ml-2 text-slate-400 font-normal">({formatNumber(totalTweets)} total)</span>
+          Users by Stance
+          <span className="ml-2 text-slate-400 font-normal">({formatNumber(totalUsers)} total)</span>
         </h3>
         
         {/* Single Stacked Progress Bar */}
@@ -316,7 +316,7 @@ function SummaryPanel({
       {/* Temporal Trend Chart */}
       <div className="h-[220px]">
         <h3 className="text-sm font-medium text-slate-600 mb-2">
-          Tweet Volume Over Time 
+          User Count Over Time 
           <span className="text-xs text-slate-400 ml-2">
             ({isCountryView ? 'Monthly' : (showDaily ? 'Daily' : 'Monthly')} trend)
           </span>
