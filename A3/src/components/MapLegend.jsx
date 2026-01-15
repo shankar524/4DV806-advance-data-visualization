@@ -2,8 +2,8 @@ import React from 'react';
 
 const stanceConfig = {
   pro_nato: { label: 'Pro-NATO/Ukraine', color: '#3b82f6', gradient: 'linear-gradient(to right, #bfdbfe, #1d4ed8)' },
-  neutral: { label: 'Neutral', color: '#9ca3af', gradient: 'linear-gradient(to right, #d1d5db, #374151)' },
-  pro_russia: { label: 'Pro-Russia', color: '#ef4444', gradient: 'linear-gradient(to right, #fecaca, #b91c1c)' }
+  pro_russia: { label: 'Pro-Russia', color: '#ef4444', gradient: 'linear-gradient(to right, #fecaca, #b91c1c)' },
+  neutral: { label: 'Neutral', color: '#9ca3af', gradient: 'linear-gradient(to right, #d1d5db, #374151)' }
 };
 
 const MapLegend = () => {
