@@ -22,6 +22,7 @@ function HashtagCloud({
   const containerRef = useRef(null);
   const [dimensions, setDimensions] = useState({ width: 400, height: 100 });
   const [tooltip, setTooltip] = useState({ show: false, x: 0, y: 0, hashtag: null });
+  const [collapsed, setCollapsed] = useState(false);
 
   // Handle resize
   useEffect(() => {
@@ -125,10 +126,16 @@ function HashtagCloud({
   if (processedHashtags.length === 0) {
     return (
       <div ref={containerRef} className="bg-white">
-        <div className="px-3 py-2 border-b border-slate-200 border-t-2 border-t-slate-300">
-          <span className="text-xs font-semibold text-slate-700 uppercase tracking-wider">Top Hashtags</span>
+        <div className="px-3 py-2 border-b border-slate-200 border-t-2 border-t-slate-300 flex items-center justify-between cursor-pointer select-none" onClick={() => setCollapsed(v => !v)}>
+          <span>
+            <span className="text-xs font-semibold text-slate-700 uppercase tracking-wider">Top Hashtags</span>
+            <span className="ml-2 text-[11px] text-slate-400 font-normal">(showing top 30)</span>
+          </span>
+          <span className="text-slate-400 text-lg">{collapsed ? '+' : '–'}</span>
         </div>
-        <div className="px-3 py-3 text-slate-400 text-sm">No hashtags for selected filters</div>
+        {!collapsed && (
+          <div className="px-3 py-3 text-slate-400 text-sm">No hashtags for selected filters</div>
+        )}
       </div>
     );
   }
@@ -136,34 +143,39 @@ function HashtagCloud({
   return (
     <div ref={containerRef} className="bg-white">
       {/* Header - matching Statistics section styling */}
-      <div className="px-3 py-2 border-b border-slate-200 border-t-2 border-t-slate-300">
-        <span className="text-xs font-semibold text-slate-700 uppercase tracking-wider">Top Hashtags</span>
-        <span className="ml-2 text-[11px] text-slate-400 font-normal">(showing top 30)</span>
+      <div className="px-3 py-2 border-b border-slate-200 border-t-2 border-t-slate-300 flex items-center justify-between cursor-pointer select-none" onClick={() => setCollapsed(v => !v)}>
+        <span>
+          <span className="text-xs font-semibold text-slate-700 uppercase tracking-wider">Top Hashtags</span>
+          <span className="ml-2 text-[11px] text-slate-400 font-normal">(showing top 30)</span>
+        </span>
+        <span className="text-slate-400 text-lg">{collapsed ? '+' : '–'}</span>
       </div>
 
       {/* Word Cloud Container */}
-      <div className="px-3 py-3 flex flex-wrap items-start content-start justify-start gap-x-2 gap-y-1">
-        {processedHashtags.map((hashtag, idx) => (
-          <span
-            key={hashtag.tag}
-            className="cursor-pointer transition-all duration-200 hover:scale-110"
-            style={{
-              fontSize: `${fontSizes[idx]}px`,
-              color: stanceColors[hashtag.stance],
-              fontWeight: fontSizes[idx] > 20 ? 600 : fontSizes[idx] > 15 ? 500 : 400,
-              opacity: 0.85 + (fontSizes[idx] - 11) / (28 - 11) * 0.15,
-              lineHeight: 1.3
-            }}
-            onMouseEnter={(e) => handleMouseEnter(e, hashtag)}
-            onMouseLeave={handleMouseLeave}
-          >
-            {hashtag.tag}
-          </span>
-        ))}
-      </div>
+      {!collapsed && (
+        <div className="px-3 py-3 flex flex-wrap items-start content-start justify-start gap-x-2 gap-y-1">
+          {processedHashtags.map((hashtag, idx) => (
+            <span
+              key={hashtag.tag}
+              className="cursor-pointer transition-all duration-200 hover:scale-110"
+              style={{
+                fontSize: `${fontSizes[idx]}px`,
+                color: stanceColors[hashtag.stance],
+                fontWeight: fontSizes[idx] > 20 ? 600 : fontSizes[idx] > 15 ? 500 : 400,
+                opacity: 0.85 + (fontSizes[idx] - 11) / (28 - 11) * 0.15,
+                lineHeight: 1.3
+              }}
+              onMouseEnter={(e) => handleMouseEnter(e, hashtag)}
+              onMouseLeave={handleMouseLeave}
+            >
+              {hashtag.tag}
+            </span>
+          ))}
+        </div>
+      )}
 
       {/* Tooltip */}
-      {tooltip.show && tooltip.hashtag && (
+      {tooltip.show && tooltip.hashtag && !collapsed && (
         <div
           className="fixed pointer-events-none bg-white/95 backdrop-blur-sm rounded-lg shadow-lg border border-slate-200 px-3 py-2 z-[100]"
           style={{
